@@ -1,4 +1,4 @@
-// axios封装
+// axios封装——基地址
 import axios from 'axios'
 const httpInstance = axios.create({
   baseURL: 'http://pcapi-xiaotuxian-front-devtest.itheima.net',
