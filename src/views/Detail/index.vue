@@ -2,6 +2,7 @@
 import { getDetail } from '@/apis/detail.js'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import DetailHot from './components/DetailHot.vue'
 
 const route = useRoute()
 const goods = ref({})
@@ -114,13 +115,16 @@ onMounted(() => { getGoods() })
                     </li>
                   </ul>
                   <!-- 图片 -->
-                  <img v-for="img in goods.details.pictures" :src="img" :key="img">
+                  <img v-for="img in goods.details.pictures" v-img-lazy="img" :key="img">
                 </div>
               </div>
             </div>
             <!-- 24热榜+专题推荐 -->
             <div class="goods-aside">
-
+              <!-- 24小时 -->
+              <DetailHot />
+              <!-- 一周 -->
+              <DetailHot />
             </div>
           </div>
         </div>
