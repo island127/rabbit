@@ -1,5 +1,6 @@
 // 封装购物车相关接口
 import httpInstance from "@/utils/http"
+import { selectEmits } from "element-plus"
 
 // 加入购物车
 export const insertCartAPI = ({ skuId, count }) => {
@@ -27,5 +28,14 @@ export const delCartAPI = (ids) => {
     data: {
       ids
     }
+  })
+}
+
+// 合并购物车
+export const mergeCartAPI = (data) => {
+  return httpInstance({
+    url: '/member/cart/merge',
+    method: 'POST',
+    data
   })
 }
