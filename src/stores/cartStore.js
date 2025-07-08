@@ -48,6 +48,10 @@ export const useCartStore = defineStore('cart', () => {
       cartList.value.splice(idx, 1)
     }
   }
+  // 清除购物车
+  const clearCart = () => {
+    cartList.value = []
+  }
 
   // 更新购物车
   const updateCartList = async () => {
@@ -91,7 +95,8 @@ export const useCartStore = defineStore('cart', () => {
     addCart,
     delCart,
     singleCheck,
-    allCheck
+    allCheck,
+    clearCart
   }
 }, {
   persist: true

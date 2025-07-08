@@ -2,6 +2,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { loginAPI } from '@/apis/user'
+import { useCartStore } from './cartStore'
 
 export const useUserStore = defineStore('user', () => {
   // 1.定义管理用户数据的state
@@ -13,7 +14,10 @@ export const useUserStore = defineStore('user', () => {
   }
   // 退出时清除用户信息
   const clearUserInfo = () => {
+    // 执行清楚购物车的action
     userInfo.value = {}
+    const useCart = useCartStore()
+    useCart.clearCart()
   }
   // 3.以对象的格式 把state和action return
   return {
