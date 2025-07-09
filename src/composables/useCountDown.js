@@ -1,7 +1,7 @@
 //封装倒计时逻辑函数
 import { computed, ref, onUnmounted } from 'vue'
 
-const useCountDown = () => {
+export const useCountDown = () => {
   let timer = null
   // 1.响应式数据
   const time = ref(0)
